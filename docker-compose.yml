@@ -1,0 +1,110 @@
+version: '3'
+
+services:
+  workspace:
+    container_name: g-workspace
+    build:
+      context: ./workspace
+    image: g-workspace  
+    volumes:
+      - $PWD/www:/var/www  
+    depends_on:
+      - mongo
+    ports:
+      - "3000:3000"
+      - "3001:3001"
+      - "3002:3002"
+      - "3003:3003"
+      - "3004:3004"
+      - "3005:3005"   
+    networks:
+      - docknet
+
+  mysql:
+    container_name: g-mysql
+    build:
+      context: ./mysql
+    image: g-mysql
+    volumes:
+      - /home/$USER/my-volumes/data/mysql:/var/lib/mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: secret
+      MYSQL_PASSWORD: secret      
+      MYSQL_USER: admin
+      MYSQL_PASSWORD: secret 
+      MYSQL_DATABASE: test
+    ports:
+      - "3306:3306"  
+    networks:
+      - docknet
+
+  mongo:
+    container_name: g-mongo
+    build:
+      context: ./mongo
+    image: g-mongo
+    volumes:
+      - /home/$USER/my-volumes/data/mongo:/data/db
+    ports:
+      - "27017:27017"
+    networks:
+      - docknet  
+
+  redis:
+    build:
+      context: ./redis
+    image: g-redis
+    container_name: g-redis
+    ports:
+      - "6379:6379"
+    volumes: 
+      - /home/$USER/my-volumes/data/redis:/data   
+    networks:
+      - docknet  
+
+  nginx:
+    build:
+      context: ./nginx
+    image: g-nginx
+    container_name: g-nginx
+    volumes:
+      - $PWD/www:/var/www
+      - $PWD/nginx/log:/var/log/nginx
+      - $PWD/nginx/sites:/etc/nginx/sites-available
+      - $PWD/nginx/ssl:/etc/nginx/ssl
+    ports:
+      - "80:80"
+      - "443:443"
+    networks:
+      - docknet
+
+  php:
+    container_name: g-php
+    build:
+      context: ./php
+    image: g-php  
+    volumes:
+      - $PWD/www:/var/www  
+    depends_on:
+      - mysql
+    ports:
+      - "80:80" 
+    networks:
+      - docknet
+
+  php-myadmin:
+    container_name: g-phpmyadmin
+    build:
+      context: ./phpmyadmin
+    image: g-phpmyadmin
+    environment:
+      PMA_HOST: mysql   
+    depends_on:
+      - mysql
+    ports:
+      - "8080:80" 
+    networks:
+      - docknet             
+
+networks:
+  docknet:
