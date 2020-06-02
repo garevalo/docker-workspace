@@ -72,9 +72,12 @@ services:
       - $PWD/nginx/log:/var/log/nginx
       - $PWD/nginx/sites:/etc/nginx/sites-available
       - $PWD/nginx/ssl:/etc/nginx/ssl
+      #- $PWD/nginx/conf.d/:/etc/nginx/conf.d/
     ports:
       - "80:80"
       - "443:443"
+    depends_on: 
+      - php  
     networks:
       - docknet
 
@@ -84,11 +87,12 @@ services:
       context: ./php
     image: g-php  
     volumes:
-      - $PWD/www:/var/www  
+      - $PWD/www:/var/www 
+      - $PWD/php/local.ini:/usr/local/etc/php/conf.d/local.ini 
     depends_on:
       - mysql
-    ports:
-      - "80:80" 
+    #ports:
+    #  - "80:80" 
     networks:
       - docknet
 

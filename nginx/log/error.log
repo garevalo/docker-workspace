@@ -2,3 +2,33 @@
 2020/05/11 00:46:26 [error] 6#6: *2 open() "/usr/share/nginx/html/favicon.ico" failed (2: No such file or directory), client: 172.22.0.1, server: localhost, request: "GET /favicon.ico HTTP/1.1", host: "localhost", referrer: "http://localhost/"
 2020/05/14 06:11:48 [error] 6#6: *1 open() "/usr/share/nginx/html/robots.txt" failed (2: No such file or directory), client: 172.22.0.1, server: localhost, request: "GET /robots.txt HTTP/1.1", host: "localhost"
 2020/05/14 06:11:48 [error] 6#6: *1 open() "/usr/share/nginx/html/favicon.ico" failed (2: No such file or directory), client: 172.22.0.1, server: localhost, request: "GET /favicon.ico HTTP/1.1", host: "localhost", referrer: "http://localhost/"
+2020/06/01 00:46:37 [emerg] 1#1: "user" directive is not allowed here in /etc/nginx/conf.d/nginx.conf:1
+2020/06/01 01:03:14 [emerg] 1#1: "user" directive is not allowed here in /etc/nginx/conf.d/nginx.conf:1
+2020/06/01 01:07:13 [emerg] 1#1: "user" directive is not allowed here in /etc/nginx/conf.d/nginx.conf:1
+2020/06/01 01:34:09 [emerg] 1#1: "user" directive is not allowed here in /etc/nginx/conf.d/nginx.conf:1
+2020/06/01 01:35:39 [emerg] 1#1: "user" directive is not allowed here in /etc/nginx/conf.d/nginx.conf:1
+2020/06/01 01:36:18 [emerg] 1#1: "user" directive is not allowed here in /etc/nginx/conf.d/nginx.conf:1
+2020/06/01 01:42:20 [emerg] 1#1: "user" directive is not allowed here in /etc/nginx/conf.d/nginx.conf:1
+2020/06/01 01:44:21 [emerg] 1#1: "user" directive is not allowed here in /etc/nginx/conf.d/nginx.conf:1
+2020/06/01 02:10:45 [emerg] 1#1: "user" directive is not allowed here in /etc/nginx/conf.d/nginx.conf:1
+2020/06/01 02:12:11 [emerg] 1#1: "user" directive is not allowed here in /etc/nginx/conf.d/nginx.conf:1
+2020/06/01 02:23:34 [emerg] 1#1: "user" directive is not allowed here in /etc/nginx/conf.d/nginx.conf:1
+2020/06/01 02:24:18 [emerg] 1#1: "user" directive is not allowed here in /etc/nginx/conf.d/nginx.conf:1
+2020/06/01 02:25:40 [emerg] 1#1: "user" directive is not allowed here in /etc/nginx/conf.d/nginx.conf:1
+2020/06/01 02:28:35 [error] 7#7: *4 open() "/usr/share/nginx/html/robots.txt" failed (2: No such file or directory), client: 172.18.0.1, server: localhost, request: "GET /robots.txt HTTP/1.1", host: "api-tienda.test"
+2020/06/01 02:28:35 [error] 7#7: *4 open() "/usr/share/nginx/html/favicon.ico" failed (2: No such file or directory), client: 172.18.0.1, server: localhost, request: "GET /favicon.ico HTTP/1.1", host: "api-tienda.test", referrer: "http://api-tienda.test/"
+2020/06/01 02:30:07 [error] 7#7: *6 open() "/usr/share/nginx/html/index.php" failed (2: No such file or directory), client: 172.18.0.1, server: localhost, request: "GET /index.php HTTP/1.1", host: "api-tienda.test"
+2020/06/01 02:33:20 [error] 7#7: *13 open() "/usr/share/nginx/html/public" failed (2: No such file or directory), client: 172.18.0.1, server: localhost, request: "GET /public HTTP/1.1", host: "api-tienda.test"
+2020/06/01 02:33:23 [error] 7#7: *13 "/usr/share/nginx/html/public/index.html" is not found (2: No such file or directory), client: 172.18.0.1, server: localhost, request: "GET /public/ HTTP/1.1", host: "api-tienda.test"
+2020/06/02 05:05:09 [error] 7#7: *2 open() "/usr/share/nginx/html/robots.txt" failed (2: No such file or directory), client: 172.18.0.1, server: localhost, request: "GET /robots.txt HTTP/1.1", host: "localhost"
+2020/06/02 05:05:09 [error] 6#6: *1 open() "/usr/share/nginx/html/favicon.ico" failed (2: No such file or directory), client: 172.18.0.1, server: localhost, request: "GET /favicon.ico HTTP/1.1", host: "localhost", referrer: "http://localhost/"
+2020/06/02 05:05:17 [error] 6#6: *3 open() "/usr/share/nginx/html/robots.txt" failed (2: No such file or directory), client: 172.18.0.1, server: localhost, request: "GET /robots.txt HTTP/1.1", host: "api-tienda.test"
+2020/06/02 05:05:17 [error] 6#6: *3 open() "/usr/share/nginx/html/favicon.ico" failed (2: No such file or directory), client: 172.18.0.1, server: localhost, request: "GET /favicon.ico HTTP/1.1", host: "api-tienda.test", referrer: "http://api-tienda.test/"
+2020/06/02 06:09:28 [emerg] 1#1: host not found in upstream "php-fpm:9000" in /etc/nginx/conf.d/upstream.conf:1
+2020/06/02 06:10:29 [emerg] 1#1: host not found in upstream "php-fpm:9000" in /etc/nginx/conf.d/upstream.conf:1
+2020/06/02 06:11:05 [emerg] 1#1: host not found in upstream "php-fpm:9000" in /etc/nginx/conf.d/upstream.conf:1
+2020/06/02 06:35:02 [emerg] 1#1: host not found in upstream "php:9000" in /etc/nginx/conf.d/upstream.conf:1
+2020/06/02 06:35:14 [emerg] 1#1: host not found in upstream "php:9000" in /etc/nginx/conf.d/upstream.conf:1
+2020/06/02 06:35:49 [emerg] 1#1: host not found in upstream "php:9000" in /etc/nginx/conf.d/upstream.conf:1
+2020/06/02 06:58:08 [emerg] 1#1: "daemon" directive is duplicate in /etc/nginx/nginx.conf:4
+2020/06/02 06:58:24 [emerg] 1#1: "daemon" directive is duplicate in /etc/nginx/nginx.conf:4
