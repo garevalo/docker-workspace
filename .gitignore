@@ -1,2 +1,4 @@
 www
 nginx/log
+nginx/sites
+!nginx/sites/default.conf
