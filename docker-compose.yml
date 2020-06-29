@@ -26,7 +26,8 @@ services:
       context: ./mysql
     image: g-mysql
     volumes:
-      - /home/$USER/my-volumes/data/mysql:/var/lib/mysql
+      #- /home/$USER/my-volumes/data/mysql:/var/lib/mysql
+      - /home/$USER/my-volumes/data/mysql5.7:/var/lib/mysql
     environment:
       MYSQL_ROOT_PASSWORD: secret
       MYSQL_PASSWORD: secret      
@@ -77,7 +78,7 @@ services:
       - "80:80"
       - "443:443"
     depends_on: 
-      - php  
+      - php7.2  
     networks:
       - docknet
 
@@ -91,10 +92,37 @@ services:
       - $PWD/php/local.ini:/usr/local/etc/php/conf.d/local.ini 
     depends_on:
       - mysql
-    #ports:
-    #  - "80:80" 
     networks:
       - docknet
+
+  php7.2:
+    container_name: g-php7.2
+    build:
+      context: ./php7.2
+    image: g-php7.2  
+    volumes:
+      - $PWD/www:/var/www 
+      - $PWD/php/local.ini:/usr/local/etc/php/conf.d/local.ini 
+    depends_on:
+      - mysql
+      - php-myadmin
+    networks:
+      - docknet
+          
+  php-apache:
+    container_name: g-php-apache
+    build:
+      context: ./php-apache
+    image: g-php-apache  
+    volumes:
+      - $PWD/www/freelance:/var/www/html 
+      #- $PWD/php/local.ini:/usr/local/etc/php/conf.d/local.ini 
+    depends_on:
+      - mysql
+    ports:
+      - "80:80" 
+    networks:
+      - docknet    
 
   php-myadmin:
     container_name: g-phpmyadmin
@@ -102,7 +130,8 @@ services:
       context: ./phpmyadmin
     image: g-phpmyadmin
     environment:
-      PMA_HOST: mysql   
+      PMA_HOST: mysql
+      UPLOAD_LIMIT: 500M   
     depends_on:
       - mysql
     ports:
